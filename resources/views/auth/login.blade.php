@@ -144,6 +144,16 @@
             </div>
         </form>
 
+        <!-- Link ke Halaman Registrasi -->
+        <div class="mt-5 text-center">
+            <p class="text-xs text-slate-500">
+                Belum memiliki akun?
+                <a href="{{ route('register') }}" class="font-bold text-blue-600 hover:text-blue-700 transition">
+                    Daftar Akun Baru
+                </a>
+            </p>
+        </div>
+
         <!-- Footer Card Note -->
         <div class="mt-6 pt-4 border-t border-slate-100 text-center">
             <p class="text-[11px] text-slate-400">

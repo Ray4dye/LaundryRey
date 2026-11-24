@@ -2,18 +2,37 @@
 
 namespace Tests\Feature\Auth;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
 {
-    /**
-     * Sesuai ketentuan, fitur registrasi ditiadakan (hanya login).
-     * Mengakses /register diarahkan kembali ke /login.
-     */
-    public function test_registration_is_disabled_and_redirects_to_login(): void
+    use RefreshDatabase;
+
+    public function test_registration_screen_can_be_rendered(): void
     {
         $response = $this->get('/register');
 
-        $response->assertRedirect(route('login'));
+        $response->assertStatus(200);
+        $response->assertSee('Pendaftaran Akun Petugas Baru');
+        $response->assertSee('Laundry Rey');
+    }
+
+    public function test_new_users_can_register(): void
+    {
+        $response = $this->post('/register', [
+            'name' => 'Petugas Laundry Baru',
+            'email' => 'petugasbaru@gmail.com',
+            'password' => 'password123',
+            'password_confirmation' => 'password123',
+            'role' => 'kasir',
+        ]);
+
+        $this->assertAuthenticated();
+        $response->assertRedirect(route('dashboard', absolute: false));
+        $this->assertDatabaseHas('users', [
+            'email' => 'petugasbaru@gmail.com',
+            'role' => 'kasir',
+        ]);
     }
 }

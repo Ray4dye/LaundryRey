@@ -19,6 +19,7 @@ Aplikasi web operasional laundry modern berbasis Laravel 11, Tailwind CSS, dan A
 - **Master Data Layanan:**
   - Katalog 8 jenis layanan cucian lengkap dengan ikon/foto SVG, kategori durasi, tarif/harga per kilogram, dan estimasi pengerjaan.
 - **Sistem Autentikasi & Otorisasi Berbasis Peran:**
+  - **Pendaftaran Akun Petugas Baru:** Formulir registrasi modern vertikal untuk mendaftarkan akun baru dengan pemilihan hak akses (Kasir atau Administrator) serta validasi data dan kata sandi.
   - **Administrator:** Akses penuh ke seluruh fitur dan Master Data Layanan.
   - **Kasir:** Fokus pada operasional transaksi harian, pencatatan order, dan rekap data pelanggan.
   - Akses cepat demo login 1-klik (*Masuk sebagai Kasir* & *Masuk sebagai Administrator*).
